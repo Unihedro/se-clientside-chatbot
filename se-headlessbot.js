@@ -91,35 +91,35 @@
 	   so it toggles for a certain message and certain user
 	*/
     function StarResponse() {
-        var seen = [], backoffFirst = false, backoffSecond = false;
-        return {
-		    events: [6],
-            next: function (ce) {
-				var idx = seen[ce.message_id];
-				if (idx === undefined) {
-					if (!backoffFirst) {
-						send('Not everything is star-worthy...');
-						backoffFirst = true;
-						window.setTimeout(function () { backoffFirst = false; }, minutes(60));
-					}
-
-					seen[ce.message_id] = [];
-					seen[ce.message_id][ce.user_id] = true;
-
-				} else {
-					if (idx[ce.user_id] === true) {
-						idx[ce.user_id]	= false;
-						if (!backoffSecond) {
-							send('Stars get removed under peer-pressure?');
-							backoffSecond = true;
-							window.setTimeout(function () { backoffSecond = false; }, minutes(60));
-						}
-					} else {
-						seen[ce.message_id][ce.user_id] = true;
-					}
-				}
-			}
-        };
+//        var seen = [], backoffFirst = false, backoffSecond = false;
+//        return {
+//		    events: [6],
+//            next: function (ce) {
+//				var idx = seen[ce.message_id];
+//				if (idx === undefined) {
+//					if (!backoffFirst) {
+//						send('Not everything is star-worthy...');
+//						backoffFirst = true;
+//						window.setTimeout(function () { backoffFirst = false; }, minutes(60));
+//					}
+//
+//					seen[ce.message_id] = [];
+//					seen[ce.message_id][ce.user_id] = true;
+//
+//				} else {
+//					if (idx[ce.user_id] === true) {
+//						idx[ce.user_id]	= false;
+//						if (!backoffSecond) {
+//							send('Stars get removed under peer-pressure?');
+//							backoffSecond = true;
+//							window.setTimeout(function () { backoffSecond = false; }, minutes(60));
+//						}
+//					} else {
+//						seen[ce.message_id][ce.user_id] = true;
+//					}
+//				}
+//			}
+//        };
     }
 
     /* offer coffee */
